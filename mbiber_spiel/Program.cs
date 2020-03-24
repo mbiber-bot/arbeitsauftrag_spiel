@@ -21,22 +21,32 @@ namespace mbiber_spiel
             frage1.AddAnswer(new Answer("D: Hemmschuh", true));
             spiel.AddQuestion(frage1);
 
+            //Frage 2
             Question frage2 = new Question("Welche britische Band gilt als Inbegriff des Synthiepop?");
-            frage1.AddAnswer(new Answer("A: Bon Jovi"));
-            frage1.AddAnswer(new Answer("B: U2"));
-            frage1.AddAnswer(new Answer("C: Depeche Mode", true));
-            frage1.AddAnswer(new Answer("D: Metallica"));
+            frage2.AddAnswer(new Answer("A: Bon Jovi"));
+            frage2.AddAnswer(new Answer("B: U2"));
+            frage2.AddAnswer(new Answer("C: Depeche Mode", true));
+            frage2.AddAnswer(new Answer("D: Metallica"));
             spiel.AddQuestion(frage2);
 
+            //Frage 3
             Question frage3 = new Question("Wem wurde in jener Stadt der Nobelpreis überreicht, die damals noch Kristiania hieß?");
-            frage1.AddAnswer(new Answer("A: Max Planck"));
-            frage1.AddAnswer(new Answer("B: Albert Schweitzer"));
-            frage1.AddAnswer(new Answer("C: Bertha von Suttner", true));
-            frage1.AddAnswer(new Answer("D: Marie Curie"));
+            frage3.AddAnswer(new Answer("A: Max Planck"));
+            frage3.AddAnswer(new Answer("B: Albert Schweitzer"));
+            frage3.AddAnswer(new Answer("C: Bertha von Suttner", true));
+            frage3.AddAnswer(new Answer("D: Marie Curie"));
             spiel.AddQuestion(frage3);
 
+            while (spiel.Status == GameStatus.Active)
+            {
+                var frage = spiel.NextQuestion;
+                var antworten = frage.Answers;
 
-
+                foreach (var antwort in antworten)
+                {
+                    Console.WriteLine(antwort);
+                }
+            }
         }
     }
 }
